@@ -16,9 +16,9 @@ public class DataSerializer {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, data);
-            logger.info("✅ Дані збережено у JSON: {}", file.getAbsolutePath());
+            logger.info(" Дані збережено у JSON: {}", file.getAbsolutePath());
         } catch (IOException e) {
-            logger.error("❌ Помилка при збереженні у JSON", e);
+            logger.error(" Помилка при збереженні у JSON", e);
             throw new DataSerializationException("Помилка серіалізації у JSON", e);
         }
     }
@@ -27,9 +27,9 @@ public class DataSerializer {
         try {
             YAMLMapper mapper = new YAMLMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, data);
-            logger.info("✅ Дані збережено у YAML: {}", file.getAbsolutePath());
+            logger.info("Дані збережено у YAML: {}", file.getAbsolutePath());
         } catch (IOException e) {
-            logger.error("❌ Помилка при збереженні у YAML", e);
+            logger.error(" Помилка при збереженні у YAML", e);
             throw new DataSerializationException("Помилка серіалізації у YAML", e);
         }
     }
@@ -39,10 +39,10 @@ public class DataSerializer {
             ObjectMapper mapper = new ObjectMapper();
             List<T> list = mapper.readValue(file,
                     mapper.getTypeFactory().constructCollectionType(List.class, clazz));
-            logger.info("✅ Дані зчитано з JSON: {}", file.getAbsolutePath());
+            logger.info(" Дані зчитано з JSON: {}", file.getAbsolutePath());
             return list;
         } catch (IOException e) {
-            logger.error("❌ Помилка читання JSON", e);
+            logger.error(" Помилка читання JSON", e);
             throw new DataSerializationException("Помилка десеріалізації JSON", e);
         }
     }
@@ -52,10 +52,10 @@ public class DataSerializer {
             YAMLMapper mapper = new YAMLMapper();
             List<T> list = mapper.readValue(file,
                     mapper.getTypeFactory().constructCollectionType(List.class, clazz));
-            logger.info("✅ Дані зчитано з YAML: {}", file.getAbsolutePath());
+            logger.info(" Дані зчитано з YAML: {}", file.getAbsolutePath());
             return list;
         } catch (IOException e) {
-            logger.error("❌ Помилка читання YAML", e);
+            logger.error(" Помилка читання YAML", e);
             throw new DataSerializationException("Помилка десеріалізації YAML", e);
         }
     }
