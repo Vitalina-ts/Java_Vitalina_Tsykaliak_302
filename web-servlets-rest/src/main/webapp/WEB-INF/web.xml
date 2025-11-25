@@ -1,0 +1,18 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         version="5.0">
+
+    <listener>
+        <listener-class>app.listener.AppStartupListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>api</servlet-name>
+        <servlet-class>app.servlet.RestApiServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>api</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
